@@ -1,5 +1,6 @@
 import React from 'react';
-import {Button} from "../components/common/Button";
+import {Button} from "./common/Button";
+import {Map} from './Map';
 
 export const App = () => {
     return (
@@ -14,7 +15,7 @@ export const App = () => {
                     <Button text="Szukaj" />
                 </div>
             </header>
-            <div className="map"/>
+            <Map />
         </>
     );
 }
