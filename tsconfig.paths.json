@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "types": ["../advertisments-map/types"]
+      "types": ["../advertisments-map-be/types"]
     }
   }
 }
