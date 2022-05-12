@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import {Button} from "../components/common/Button";
 
 export const App = () => {
     return (
@@ -8,10 +8,10 @@ export const App = () => {
                 <h1>
                     <strong>Mega </strong> Ogłoszenia
                 </h1>
-                <button>Dodaj ogłoszenie</button>
+                <Button text="Dodaj ogłoszenie" />
                 <div className="search">
                     <input type="text"/>
-                    <button>Szukaj</button>
+                    <Button text="Szukaj" />
                 </div>
             </header>
             <div className="map"/>
