@@ -2,6 +2,7 @@ import React from "react";
 import './Map.css';
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
+import '../../utils/fix-map-icon'
 
 export const Map = () => {
     return <div className="map">
