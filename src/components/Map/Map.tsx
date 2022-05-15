@@ -1,11 +1,19 @@
-import React from "react";
-import './Map.css';
+import React, {useContext, useEffect} from "react";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
+import {SearchContext} from "../../ctx/search.context";
 import 'leaflet/dist/leaflet.css';
 import '../../utils/fix-map-icon'
+import './Map.css';
 
 export const Map = () => {
+    const {search} = useContext(SearchContext);
+
+    useEffect(() => {
+        console.log('Make request for:', search)
+    }, [search])
+
     return <div className="map">
+        <h1>Search for: {search}</h1>
         <MapContainer
             center={[50.2657152,18.9945008]} zoom={20}
         >
