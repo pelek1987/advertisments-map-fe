@@ -1,19 +1,26 @@
-import React, {useContext, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {MapContainer, Marker, Popup, TileLayer} from "react-leaflet";
 import {SearchContext} from "../../ctx/search.context";
+import {SimpleAdEntity} from 'types';
 import 'leaflet/dist/leaflet.css';
 import '../../utils/fix-map-icon'
 import './Map.css';
+import {SingleAd} from "../SingleAd";
 
 export const Map = () => {
+
+    const [ads, setAds] = useState<SimpleAdEntity[]>([])
     const {search} = useContext(SearchContext);
 
     useEffect(() => {
-        console.log('Make request for:', search)
+        (async () => {
+            const response = await fetch(`http://localhost:3001/ad/search/${search}`);
+            const ads = await response.json()
+            setAds(ads);
+        })()
     }, [search])
 
     return <div className="map">
-        <h1>Search for: {search}</h1>
         <MapContainer
             center={[50.2657152,18.9945008]} zoom={20}
         >
@@ -21,12 +28,14 @@ export const Map = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> & contributors"
             />
-            <Marker position={[50.2657152,18.9945008]}>
-                <Popup>
-                    <h2>IT.focus</h2>
-                    <p>Super firma programistyczna!</p>
-                </Popup>
-            </Marker>
+            {ads.map(ad => (
+                    <Marker key={ad.id} position={[ad.lat, ad.lon]}>
+                        <Popup>
+                            <SingleAd id={ad.id} />
+                        </Popup>
+                    </Marker>
+                )
+            )}
         </MapContainer>
     </div>
 }

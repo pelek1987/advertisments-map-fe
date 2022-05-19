@@ -1,0 +1,1 @@
+export { SingleAd } from './SingleAd';
