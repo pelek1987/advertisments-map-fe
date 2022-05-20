@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ChangeEventHandler, FormEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, useState} from "react";
 import './AddForm.css';
 import {Input} from "../common/Input";
 import {Button} from "../common/Button";
