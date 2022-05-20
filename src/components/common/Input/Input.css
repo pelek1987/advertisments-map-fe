@@ -1,0 +1,18 @@
+.Input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Input input {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+.Input label {
+    font-weight: bold;
+}
+
+.Input label span {
+    display: block;
+}

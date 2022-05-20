@@ -1,0 +1,18 @@
+.Textarea {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Textarea textarea {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+}
+
+.Textarea label {
+    font-weight: bold;
+}
+
+.Textarea label span {
+    display: block;
+}
