@@ -4,6 +4,7 @@ import {Input} from "../common/Input";
 import {Button} from "../common/Button";
 import {Textarea} from "../common/Textarea";
 import {geocode} from "../../utils/geocoding";
+import {apiUrl, endpoints} from "../../config/api";
 
 type FormFields = {
     name: string,
@@ -40,7 +41,7 @@ export const AddForm = () => {
         setLoading(true);
         try {
             const {lat, lon} = await geocode(formFields.address);
-            const res = await fetch('http://localhost:3001/ad', {
+            const res = await fetch(`${apiUrl}/${endpoints.AD}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
